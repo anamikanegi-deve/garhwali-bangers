@@ -53,72 +53,8 @@ const songs = [
     title: "Ho be laliye",
     artist: "Garhwali Bangers",
     file: "songs/Ho Be Laliye Kullvi Traditional Song Kullvi Nati Folk Song  Himachal diaries Kritika Tanwar.mp3"
-  },
-
-  /* NEW SONGS */
-
-  {
-    title: "Nandre Tu",
-    artist: "Garhwali Bangers",
-    file: "songs/Nandre Tu  ननदर त  Rohit Chauhan  Latest Uttarakhandi Song.mp3"
-  },
-  {
-    title: "Mund Ma Tupuli Saji",
-    artist: "Garhwali Bangers",
-    file: "songs/Mund Ma Tupuli Saji ge Latest Garhwali DJ Song 2020  Devesh Rawat  Mars Series II Team M J.mp3"
-  },
-  {
-    title: "Ab Laglu Mandaan",
-    artist: "Garhwali Bangers",
-    file: "songs/Ab Laglu Mandaan  Ruhaan Bhardwaj  X KARISHMA SHAH X Official Song  youth festival 2020.mp3"
-  },
-  {
-    title: "Mohana Teri Murali Baaji",
-    artist: "Garhwali Bangers",
-    file: "songs/Mohana Teri Murali Baaji [Full Song] Rajuli.mp3"
-  },
-  {
-    title: "Samloyna Rumaal",
-    artist: "Garhwali Bangers",
-    file: "songs/Samlonya Rumaal  Rohit Chauhan  Uttarakhandi Song.mp3"
-  },
-  {
-    title: "Sachi Bonu Chho",
-    artist: "Garhwali Bangers",
-    file: "songs/SACHI BONU CHHO  SAURAV MAITHANI  SANJU SILODI & RUCHI RAWAT  HIMALAYAN PULSE.mp3"
-  },
-  {
-    title: "Syali Bol Bharuna",
-    artist: "Garhwali Bangers",
-    file: "songs/Syali Bol Bharuna  Letest Garhwali Video Song 2020  GeetaRam Kanswal  Ruchi  Naresh Bailwal.mp3"
-  },
-  {
-    title: "Bareilly Ko Jhumka",
-    artist: "Garhwali Bangers",
-    file: "songs/BAREILLY KO JHUMKA  ROHIT CHAUHAN  UTTARAKHANDI SONG  OFFICIAL VIDEO.mp3"
-  },
-  {
-    title: "LP Gadi",
-    artist: "Garhwali Bangers",
-    file: "songs/LP Gadi By Vicky Chauhan & Geeta Bhardwaj ft Neeraj Dabral & Shubhangi  Latest Himachali Video 2022.mp3"
-  },
-  {
-    title: "Hey Kanchhi",
-    artist: "Garhwali Bangers",
-    file: "songs/Hey Kanchhi , by Anil Bisht.mp3"
-  },
-  {
-    title: "Chhakna Baand",
-    artist: "Garhwali Bangers",
-    file: "songs/Chhakna Baand [Full Song] Chhakna Baand.mp3"
-  },
-  {
-    title: "Gori Mukhadi Sazeli",
-    artist: "Garhwali Bangers",
-    file: "songs/Gori Mukhadi Sazeli.mp3"
   }
 ];
-
 
 const audio = document.getElementById("audio");
 const songList = document.getElementById("songList");
@@ -142,11 +78,16 @@ const playerTitle = document.getElementById("playerTitle");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+const fullscreenBtn = document.getElementById("fullscreenBtn");
+const onlineCount = document.getElementById("onlineCount");
+
 let currentIndex = 0;
 
 
 function formatTime(seconds) {
-  if (!seconds || isNaN(seconds)) return "0:00";
+  if (!seconds || isNaN(seconds)) {
+    return "0:00";
+  }
 
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
@@ -174,8 +115,8 @@ function showSongs() {
     item.className = "song";
 
     item.innerHTML = `
-      <div class="hero-art" style="width:50px;height:50px;font-size:22px;">
-        🎵
+      <div class="song-cover">
+        <img src="song-icon.jpg" alt="Song icon">
       </div>
 
       <div class="song-info">
@@ -187,12 +128,23 @@ function showSongs() {
     `;
 
     item.addEventListener("click", () => {
-      loadSong(index);
-      playSong();
+
+      if (
+        index === currentIndex &&
+        !audio.paused
+      ) {
+        pauseSong();
+      } else {
+        loadSong(index);
+        playSong();
+      }
+
     });
 
     songList.appendChild(item);
   });
+
+  updateSongList();
 }
 
 
@@ -213,28 +165,7 @@ function loadSong(index) {
   currentTime.textContent = "0:00";
   duration.textContent = "0:00";
 
-  document.querySelectorAll(".song").forEach((item, i) => {
-    item.classList.toggle("active", i === currentIndex);
-
-    const button = item.querySelector(".song-play");
-
-    if (i === currentIndex && !audio.paused) {
-      button.textContent = "⏸";
-    } else {
-      button.textContent = "▶";
-    }
-  });
-}
-
-
-function updatePlayButtons() {
-  document.querySelectorAll(".song-play").forEach((button, index) => {
-    if (index === currentIndex && !audio.paused) {
-      button.textContent = "⏸";
-    } else {
-      button.textContent = "▶";
-    }
-  });
+  updateSongList();
 }
 
 
@@ -243,11 +174,14 @@ function playSong() {
 
   player.classList.add("open");
 
-  audio.play();
-
-  playPause.textContent = "⏸";
-
-  updatePlayButtons();
+  audio.play()
+    .then(() => {
+      playPause.textContent = "⏸";
+      updateSongList();
+    })
+    .catch(error => {
+      console.log("Song play error:", error);
+    });
 }
 
 
@@ -256,7 +190,7 @@ function pauseSong() {
 
   playPause.textContent = "▶";
 
-  updatePlayButtons();
+  updateSongList();
 }
 
 
@@ -288,6 +222,32 @@ function previousSong() {
 }
 
 
+function updateSongList() {
+  document
+    .querySelectorAll(".song")
+    .forEach((item, index) => {
+
+      const button =
+        item.querySelector(".song-play");
+
+      item.classList.toggle(
+        "active",
+        index === currentIndex
+      );
+
+      if (
+        index === currentIndex &&
+        !audio.paused
+      ) {
+        button.textContent = "⏸";
+      } else {
+        button.textContent = "▶";
+      }
+
+    });
+}
+
+
 musicButton.addEventListener("click", () => {
   player.classList.toggle("open");
 });
@@ -299,23 +259,22 @@ closePlayer.addEventListener("click", () => {
 
 
 playPause.addEventListener("click", () => {
-  if (!songs.length) return;
 
   if (audio.paused) {
     playSong();
   } else {
     pauseSong();
   }
+
 });
 
 
 next.addEventListener("click", nextSong);
-
-
 prev.addEventListener("click", previousSong);
 
 
 audio.addEventListener("timeupdate", () => {
+
   if (!audio.duration) return;
 
   progress.value =
@@ -323,39 +282,86 @@ audio.addEventListener("timeupdate", () => {
 
   currentTime.textContent =
     formatTime(audio.currentTime);
+
 });
 
 
 audio.addEventListener("loadedmetadata", () => {
+
   duration.textContent =
     formatTime(audio.duration);
+
 });
 
 
 progress.addEventListener("input", () => {
+
   if (!audio.duration) return;
 
   audio.currentTime =
     (progress.value / 100) * audio.duration;
+
 });
 
+
+/* SONG KHATAM HOTE HI NEXT */
 
 audio.addEventListener("ended", nextSong);
 
 
 audio.addEventListener("play", () => {
   playPause.textContent = "⏸";
-  updatePlayButtons();
+  updateSongList();
 });
 
 
 audio.addEventListener("pause", () => {
   playPause.textContent = "▶";
-  updatePlayButtons();
+  updateSongList();
 });
 
 
-audio.volume = 0.8;
+/* FULLSCREEN */
 
+fullscreenBtn.addEventListener("click", () => {
+
+  if (!document.fullscreenElement) {
+
+    document.documentElement
+      .requestFullscreen()
+      .catch(error => {
+        console.log("Fullscreen error:", error);
+      });
+
+  } else {
+    document.exitFullscreen();
+  }
+
+});
+
+
+/* ONLINE COUNT DISPLAY */
+
+setInterval(() => {
+
+  let current =
+    parseInt(onlineCount.textContent);
+
+  const change =
+    Math.floor(Math.random() * 7) - 3;
+
+  current += change;
+
+  if (current < 150) {
+    current = 150;
+  }
+
+  onlineCount.textContent = current;
+
+}, 8000);
+
+
+/* WEBSITE START */
 
 showSongs();
+loadSong(0);
