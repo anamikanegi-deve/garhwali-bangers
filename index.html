@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Garhwali Bangers</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+
+  <main class="app">
+
+    <header>
+      <p class="eyebrow">🏔️ PAHADI VIBES</p>
+
+      <h1>
+        Garhwali <span>Bangers</span>
+      </h1>
+
+      <p class="sub">
+        Your Garhwali music corner
+      </p>
+    </header>
+
+
+    <!-- CURRENT SONG SECTION -->
+
+    <section class="hero">
+
+      <div class="hero-art">
+        🏔️
+        <small>GARHWAL</small>
+      </div>
+
+      <div>
+
+        <h2 id="nowTitle">
+          Select a song
+        </h2>
+
+        <p id="nowArtist">
+          Garhwali Bangers
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- SONG LIST -->
+
+    <section class="songs-section">
+
+      <div class="section-title">
+
+        <h2>🎵 Songs</h2>
+
+        <span id="songCount">
+          0 songs
+        </span>
+
+      </div>
+
+
+      <div id="songList" class="song-list"></div>
+
+
+      <p id="empty" class="empty">
+        Songs will appear here.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM MUSIC BUTTON -->
+
+  <div class="music-control">
+
+    <button id="musicButton" class="music-button">
+      ♫
+    </button>
+
+    <span class="music-label">
+      NOW PLAYING
+    </span>
+
+  </div>
+
+
+  <!-- MUSIC PLAYER -->
+
+  <div id="player" class="player">
+
+    <div class="player-top">
+
+      <div>
+
+        <p class="now-label">
+          PLAYING
+        </p>
+
+        <h3 id="playerTitle">
+          Select a song
+        </h3>
+
+      </div>
+
+
+      <button id="closePlayer" class="close">
+        ×
+      </button>
+
+    </div>
+
+
+    <!-- PROGRESS BAR -->
+
+    <input
+      id="progress"
+      type="range"
+      min="0"
+      max="100"
+      value="0"
+    >
+
+
+    <!-- SONG TIME -->
+
+    <div class="times">
+
+      <span id="currentTime">
+        0:00
+      </span>
+
+      <span id="duration">
+        0:00
+      </span>
+
+    </div>
+
+
+    <!-- PLAYER CONTROLS -->
+
+    <div class="controls">
+
+      <button id="prev">
+        ⏮
+      </button>
+
+
+      <button id="playPause" class="main-control">
+        ▶
+      </button>
+
+
+      <button id="next">
+        ⏭
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- AUDIO -->
+
+  <audio id="audio"></audio>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
