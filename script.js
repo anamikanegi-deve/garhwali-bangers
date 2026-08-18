@@ -117,10 +117,6 @@ const songs = [
 ];
 
 
-/* =========================
-   ELEMENTS
-========================= */
-
 const audio = document.getElementById("audio");
 
 const player = document.getElementById("player");
@@ -139,98 +135,54 @@ const nowArtist = document.getElementById("nowArtist");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
-
 let currentIndex = 0;
 
 
-/* =========================
-   FORMAT TIME
-========================= */
-
 function formatTime(seconds) {
 
-  if (isNaN(seconds) || seconds === Infinity) {
+  if (isNaN(seconds) || !isFinite(seconds)) {
     return "0:00";
   }
 
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
 
-  return `${minutes}:${secs
-    .toString()
-    .padStart(2, "0")}`;
+  return minutes + ":" +
+    secs.toString().padStart(2, "0");
 }
 
 
-/* =========================
-   LOAD SONG
-========================= */
-
 function loadSong(index) {
-
-  if (!songs.length) return;
 
   currentIndex = index;
 
   const song = songs[currentIndex];
 
-  audio.pause();
-
-  /* SONG FILE LOAD */
-
   audio.src = song.file;
 
-  audio.load();
-
-
-  /* SONG NAME */
-
   nowTitle.textContent = song.title;
-
   nowArtist.textContent = song.artist;
 
-
-  /* RESET PROGRESS */
-
   progress.value = 0;
-
   currentTime.textContent = "0:00";
-
   duration.textContent = "0:00";
+
+  audio.load();
 }
 
 
-/* =========================
-   PLAY SONG
-========================= */
-
 function playSong() {
 
-  if (!songs.length) return;
-
-  player.classList.add("open");
-
   audio.play()
-    .then(() => {
-
+    .then(function () {
       playPause.textContent = "⏸";
-
     })
-    .catch((error) => {
-
-      console.error(
-        "Song play error:",
-        error
-      );
-
+    .catch(function (error) {
+      console.log("Cannot play:", error);
     });
 
 }
 
-
-/* =========================
-   PAUSE SONG
-========================= */
 
 function pauseSong() {
 
@@ -241,11 +193,18 @@ function pauseSong() {
 }
 
 
-/* =========================
-   NEXT SONG
-========================= */
+playPause.addEventListener("click", function () {
 
-function nextSong() {
+  if (audio.paused) {
+    playSong();
+  } else {
+    pauseSong();
+  }
+
+});
+
+
+next.addEventListener("click", function () {
 
   currentIndex++;
 
@@ -254,17 +213,12 @@ function nextSong() {
   }
 
   loadSong(currentIndex);
-
   playSong();
 
-}
+});
 
 
-/* =========================
-   PREVIOUS SONG
-========================= */
-
-function previousSong() {
+prev.addEventListener("click", function () {
 
   currentIndex--;
 
@@ -273,81 +227,23 @@ function previousSong() {
   }
 
   loadSong(currentIndex);
-
   playSong();
-
-}
-
-
-/* =========================
-   PLAY / PAUSE BUTTON
-========================= */
-
-playPause.addEventListener("click", () => {
-
-  if (audio.paused) {
-
-    playSong();
-
-  } else {
-
-    pauseSong();
-
-  }
 
 });
 
 
-/* =========================
-   NEXT BUTTON
-========================= */
-
-next.addEventListener(
-  "click",
-  nextSong
-);
-
-
-/* =========================
-   PREVIOUS BUTTON
-========================= */
-
-prev.addEventListener(
-  "click",
-  previousSong
-);
-
-
-/* =========================
-   MUSIC BUTTON
-   SHOW / HIDE PLAYER
-========================= */
-
-musicButton.addEventListener("click", () => {
+musicButton.addEventListener("click", function () {
 
   player.classList.toggle("open");
 
 });
 
 
-/* =========================
-   FULLSCREEN BUTTON
-========================= */
-
-fullscreenButton.addEventListener("click", () => {
+fullscreenButton.addEventListener("click", function () {
 
   if (!document.fullscreenElement) {
 
-    document.documentElement
-      .requestFullscreen()
-      .catch((error) => {
-
-        console.log(
-          "Fullscreen error:",
-          error
-        );
-
-      });
+    document.documentElement.requestFullscreen();
 
   } else {
 
@@ -358,120 +254,73 @@ fullscreenButton.addEventListener("click", () => {
 });
 
 
-/* =========================
-   PROGRESS UPDATE
-========================= */
+audio.addEventListener("loadedmetadata", function () {
 
-audio.addEventListener(
-  "timeupdate",
-  () => {
+  duration.textContent =
+    formatTime(audio.duration);
 
-    if (!audio.duration) return;
+});
 
-    progress.value =
-      (audio.currentTime / audio.duration) * 100;
 
-    currentTime.textContent =
-      formatTime(audio.currentTime);
+audio.addEventListener("timeupdate", function () {
 
+  if (!audio.duration) return;
+
+  progress.value =
+    (audio.currentTime / audio.duration) * 100;
+
+  currentTime.textContent =
+    formatTime(audio.currentTime);
+
+});
+
+
+progress.addEventListener("input", function () {
+
+  if (!audio.duration) return;
+
+  audio.currentTime =
+    (progress.value / 100) * audio.duration;
+
+});
+
+
+audio.addEventListener("ended", function () {
+
+  currentIndex++;
+
+  if (currentIndex >= songs.length) {
+    currentIndex = 0;
   }
-);
+
+  loadSong(currentIndex);
+  playSong();
+
+});
 
 
-/* =========================
-   SONG DURATION
-========================= */
+audio.addEventListener("play", function () {
 
-audio.addEventListener(
-  "loadedmetadata",
-  () => {
+  playPause.textContent = "⏸";
 
-    duration.textContent =
-      formatTime(audio.duration);
-
-  }
-);
+});
 
 
-/* =========================
-   SEEK SONG
-========================= */
+audio.addEventListener("pause", function () {
 
-progress.addEventListener(
-  "input",
-  () => {
+  playPause.textContent = "▶";
 
-    if (!audio.duration) return;
-
-    audio.currentTime =
-      (progress.value / 100) *
-      audio.duration;
-
-  }
-);
+});
 
 
-/* =========================
-   SONG ENDED
-========================= */
+audio.addEventListener("error", function () {
 
-audio.addEventListener(
-  "ended",
-  () => {
+  console.log(
+    "Audio file error:",
+    songs[currentIndex].file
+  );
 
-    nextSong();
+});
 
-  }
-);
-
-
-/* =========================
-   PLAY EVENT
-========================= */
-
-audio.addEventListener(
-  "play",
-  () => {
-
-    playPause.textContent = "⏸";
-
-  }
-);
-
-
-/* =========================
-   PAUSE EVENT
-========================= */
-
-audio.addEventListener(
-  "pause",
-  () => {
-
-    playPause.textContent = "▶";
-
-  }
-);
-
-
-/* =========================
-   AUDIO ERROR
-========================= */
-
-audio.addEventListener(
-  "error",
-  () => {
-
-    console.error(
-      "SONG FILE ERROR:",
-      songs[currentIndex].file
-    );
-
-  }
-);
-
-
-/* =========================
-   LOAD FIRST SONG
-========================= */
 
 loadSong(0);
