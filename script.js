@@ -1,13 +1,13 @@
 const songs = [
   {
-    title: "Gajna",
-    artist: "Garhwali Bangers",
-    file: "songs/Gajna(गजन)  New latest Gadwali Song 2026  Pritam Bhartwan.mp3"
-  },
-  {
     title: "Chall meri saruli kimasaadi haat ma",
     artist: "Garhwali Bangers",
     file: "songs/Chal meri saruli kimsadihat ma full new jagar Panwada song new  gadwali song Pritam Bhartwan.mp3"
+  },
+  {
+    title: "Gajna",
+    artist: "Garhwali Bangers",
+    file: "songs/Gajna(गजन)  New latest Gadwali Song 2026  Pritam Bhartwan.mp3"
   },
   {
     title: "Challpatti",
