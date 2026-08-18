@@ -13,7 +13,6 @@ body {
   color: white;
 }
 
-
 /* BACKGROUND */
 
 .background {
@@ -27,7 +26,6 @@ body {
 
   z-index: -2;
 }
-
 
 /* DARK OVERLAY */
 
@@ -45,7 +43,6 @@ body {
   z-index: -1;
 }
 
-
 /* TITLE */
 
 .hero {
@@ -59,54 +56,41 @@ body {
   width: 100%;
 
   text-align: center;
-
   padding: 20px;
 }
 
-
 .hero h1 {
   font-size: clamp(50px, 9vw, 130px);
-
   font-family: Georgia, serif;
-
   font-weight: normal;
 
   text-shadow:
     0 5px 30px rgba(0, 0, 0, 0.6);
 }
 
-
 .hero h1 span {
   margin-left: 15px;
 }
 
-
 .hero p {
   margin-top: 15px;
-
   font-size: 13px;
-
   letter-spacing: 3px;
-
   opacity: 0.8;
 }
-
 
 /* SIDE BUTTONS */
 
 .side-buttons {
   position: fixed;
-
   top: 25px;
   right: 25px;
 
   display: flex;
-
   gap: 12px;
 
   z-index: 100;
 }
-
 
 .side-btn {
   width: 52px;
@@ -121,12 +105,10 @@ body {
   backdrop-filter: blur(10px);
 
   color: white;
-
   font-size: 22px;
 
   cursor: pointer;
 }
-
 
 /* PLAYER */
 
@@ -165,7 +147,6 @@ body {
   z-index: 50;
 }
 
-
 /* HIDE PLAYER */
 
 .player:not(.open) {
@@ -174,21 +155,17 @@ body {
     translateY(180%);
 }
 
-
-/* LEFT */
+/* LEFT SIDE */
 
 .player-left {
   display: flex;
-
   align-items: center;
 
   gap: 18px;
 
   flex: 1;
-
   min-width: 0;
 }
-
 
 /* COVER */
 
@@ -200,26 +177,28 @@ body {
 
   border-radius: 50%;
 
+  overflow: hidden;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+
   background: rgba(255, 255, 255, 0.15);
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-size: 28px;
 }
 
+.cover img {
+  width: 100%;
+  height: 100%;
 
-/* INFO */
+  object-fit: cover;
+
+  display: block;
+}
+
+/* SONG INFO */
 
 .player-info {
   flex: 1;
-
   min-width: 0;
 }
-
 
 .player-info h2 {
   font-size: 18px;
@@ -231,17 +210,14 @@ body {
   text-overflow: ellipsis;
 }
 
-
 .player-info p {
   font-size: 13px;
 
   opacity: 0.7;
 
   margin-top: 5px;
-
   margin-bottom: 12px;
 }
-
 
 /* PROGRESS */
 
@@ -255,13 +231,11 @@ body {
   font-size: 12px;
 }
 
-
 #progress {
   flex: 1;
 
   cursor: pointer;
 }
-
 
 /* CONTROLS */
 
@@ -272,7 +246,6 @@ body {
 
   gap: 10px;
 }
-
 
 .control-btn {
   width: 45px;
@@ -288,7 +261,6 @@ body {
 
   cursor: pointer;
 }
-
 
 .play-btn {
   width: 58px;
@@ -307,7 +279,6 @@ body {
   cursor: pointer;
 }
 
-
 /* MOBILE */
 
 @media (max-width: 600px) {
@@ -318,7 +289,6 @@ body {
 
   .hero p {
     font-size: 9px;
-
     letter-spacing: 2px;
   }
 
@@ -334,7 +304,6 @@ body {
 
   .player {
     padding: 14px;
-
     bottom: 15px;
   }
 
