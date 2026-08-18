@@ -1,184 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Garhwali Bangers</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+  <!-- BACKGROUND -->
+  <div class="background"></div>
   <div class="overlay"></div>
 
-  <main class="app">
 
-    <header>
-      <p class="eyebrow">🏔️ PAHADI VIBES</p>
+  <!-- MAIN TITLE -->
+  <main class="hero">
 
-      <h1>
-        Garhwali <span>Bangers</span>
-      </h1>
+    <h1>
+      <span>गढ़वाली</span>
+      BANGERS
+    </h1>
 
-      <p class="sub">
-        Your Garhwali music corner
-      </p>
-    </header>
-
-
-    <!-- CURRENT SONG SECTION -->
-
-    <section class="hero">
-
-      <div class="hero-art">
-        🏔️
-        <small>GARHWAL</small>
-      </div>
-
-      <div>
-
-        <h2 id="nowTitle">
-          Select a song
-        </h2>
-
-        <p id="nowArtist">
-          Garhwali Bangers
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- SONG LIST -->
-
-    <section class="songs-section">
-
-      <div class="section-title">
-
-        <h2>🎵 Songs</h2>
-
-        <span id="songCount">
-          0 songs
-        </span>
-
-      </div>
-
-
-      <div id="songList" class="song-list"></div>
-
-
-      <p id="empty" class="empty">
-        Songs will appear here.
-      </p>
-
-    </section>
+    <p>Garhwali Music • Uttarakhand</p>
 
   </main>
 
 
-  <!-- BOTTOM MUSIC BUTTON -->
+  <!-- SIDE BUTTONS -->
 
-  <div class="music-control">
+  <div class="side-buttons">
 
-    <button id="musicButton" class="music-button">
-      ♫
+    <!-- MUSIC PLAYER SHOW/HIDE -->
+    <button id="musicButton" class="side-btn" title="Music">
+      🎵
     </button>
 
-    <span class="music-label">
-      NOW PLAYING
-    </span>
+    <!-- FULLSCREEN -->
+    <button id="fullscreenButton" class="side-btn" title="Fullscreen">
+      ⛶
+    </button>
 
   </div>
 
 
   <!-- MUSIC PLAYER -->
 
-  <div id="player" class="player">
+  <section id="player" class="player open">
 
-    <div class="player-top">
+    <div class="player-left">
 
-      <div>
+      <div class="cover">
+        <img
+          id="coverImage"
+          src="covers/cover.jpg"
+          alt="Song Cover"
+        />
+      </div>
 
-        <p class="now-label">
-          PLAYING
+      <div class="player-info">
+
+        <h2 id="nowTitle">
+          Garhwali Bangers
+        </h2>
+
+        <p id="nowArtist">
+          Garhwali Bangers
         </p>
 
-        <h3 id="playerTitle">
-          Select a song
-        </h3>
+        <div class="time-row">
+
+          <span id="currentTime">0:00</span>
+
+          <input
+            type="range"
+            id="progress"
+            min="0"
+            max="100"
+            value="0"
+          />
+
+          <span id="duration">0:00</span>
+
+        </div>
 
       </div>
 
-
-      <button id="closePlayer" class="close">
-        ×
-      </button>
-
     </div>
 
 
-    <!-- PROGRESS BAR -->
-
-    <input
-      id="progress"
-      type="range"
-      min="0"
-      max="100"
-      value="0"
-    >
-
-
-    <!-- SONG TIME -->
-
-    <div class="times">
-
-      <span id="currentTime">
-        0:00
-      </span>
-
-      <span id="duration">
-        0:00
-      </span>
-
-    </div>
-
-
-    <!-- PLAYER CONTROLS -->
+    <!-- CONTROLS -->
 
     <div class="controls">
 
-      <button id="prev">
+      <button id="prev" class="control-btn">
         ⏮
       </button>
 
-
-      <button id="playPause" class="main-control">
+      <button id="playPause" class="play-btn">
         ▶
       </button>
 
-
-      <button id="next">
+      <button id="next" class="control-btn">
         ⏭
       </button>
 
     </div>
 
-  </div>
+  </section>
 
-
-  <!-- AUDIO -->
 
   <audio id="audio"></audio>
-
-
-  <!-- JAVASCRIPT -->
 
   <script src="script.js"></script>
 
 </body>
-
 </html>
