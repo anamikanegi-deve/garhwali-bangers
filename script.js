@@ -1,4 +1,5 @@
-const songs = [
+const songs = 
+  [
   {
     title: "Chall meri saruli kimasaadi haat ma",
     artist: "Garhwali Bangers",
