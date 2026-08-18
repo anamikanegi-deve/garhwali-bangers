@@ -364,4 +364,8 @@ setInterval(() => {
 /* WEBSITE START */
 
 showSongs();
+<<<<<<< HEAD
 loadSong(0);
+=======
+loadSong(0);
+>>>>>>> 8e0aef804a906fc22bf835f632f6cdf7df71e006
