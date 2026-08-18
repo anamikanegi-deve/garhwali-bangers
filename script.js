@@ -60,52 +60,52 @@ const songs = [
   {
     title: "Nandre Tu",
     artist: "Garhwali Bangers",
-    file: "songs/Nandre Tu  Rohit Chauhan Latest.mp3"
+    file: "songs/Nandre Tu  ननदर त  Rohit Chauhan  Latest Uttarakhandi Song.mp3"
   },
   {
     title: "Mund Ma Tupuli Saji",
     artist: "Garhwali Bangers",
-    file: "songs/Mund Ma Tupuli Saji ge Latest Garhwali.mp3"
+    file: "songs/Mund Ma Tupuli Saji ge Latest Garhwali DJ Song 2020  Devesh Rawat  Mars Series II Team M J.mp3"
   },
   {
     title: "Ab Laglu Mandaan",
     artist: "Garhwali Bangers",
-    file: "songs/Ab Laglu Mandaan Ruhaan Bhardwaj.mp3"
+    file: "songs/Ab Laglu Mandaan  Ruhaan Bhardwaj  X KARISHMA SHAH X Official Song  youth festival 2020.mp3"
   },
   {
     title: "Mohana Teri Murali Baaji",
     artist: "Garhwali Bangers",
-    file: "songs/Mohana Teri Murali Baaji [Full Song] Raju.mp3"
+    file: "songs/Mohana Teri Murali Baaji [Full Song] Rajuli.mp3"
   },
   {
     title: "Samloyna Rumaal",
     artist: "Garhwali Bangers",
-    file: "songs/Samloyna Rumaal Rohit Chauhan Uttarakhand.mp3"
+    file: "songs/Samlonya Rumaal  Rohit Chauhan  Uttarakhandi Song.mp3"
   },
   {
     title: "Sachi Bonu Chho",
     artist: "Garhwali Bangers",
-    file: "songs/SACHI BONU CHHO SAURAV MAITHANI.mp3"
+    file: "songs/SACHI BONU CHHO  SAURAV MAITHANI  SANJU SILODI & RUCHI RAWAT  HIMALAYAN PULSE.mp3"
   },
   {
     title: "Syali Bol Bharuna",
     artist: "Garhwali Bangers",
-    file: "songs/Syali Bol Bharuna Letest Garhwali Video.mp3"
+    file: "songs/Syali Bol Bharuna  Letest Garhwali Video Song 2020  GeetaRam Kanswal  Ruchi  Naresh Bailwal.mp3"
   },
   {
     title: "Bareilly Ko Jhumka",
     artist: "Garhwali Bangers",
-    file: "songs/BAREILLY KO JHUMKA ROHIT CHAUHAN.mp3"
+    file: "songs/BAREILLY KO JHUMKA  ROHIT CHAUHAN  UTTARAKHANDI SONG  OFFICIAL VIDEO.mp3"
   },
   {
     title: "LP Gadi",
     artist: "Garhwali Bangers",
-    file: "songs/LP Gadi By Vicky Chauhan & Geeta Bhardwaj.mp3"
+    file: "songs/LP Gadi By Vicky Chauhan & Geeta Bhardwaj ft Neeraj Dabral & Shubhangi  Latest Himachali Video 2022.mp3"
   },
   {
     title: "Hey Kanchhi",
     artist: "Garhwali Bangers",
-    file: "songs/Hey Kanchhi , by Anil Bisht.mp3"
+    file: "songs/Hey Kanchhi  , by Anil Bisht.mp3"
   },
   {
     title: "Chhakna Baand",
