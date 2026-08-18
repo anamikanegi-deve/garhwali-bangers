@@ -56,6 +56,7 @@ const songs = [
   }
 ];
 
+
 const audio = document.getElementById("audio");
 const songList = document.getElementById("songList");
 const songCount = document.getElementById("songCount");
@@ -78,6 +79,7 @@ const playerTitle = document.getElementById("playerTitle");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+
 let currentIndex = 0;
 
 
@@ -90,6 +92,21 @@ function formatTime(seconds) {
   const secs = Math.floor(seconds % 60);
 
   return `${minutes}:${secs.toString().padStart(2, "0")}`;
+}
+
+
+/* UPDATE PLAY / PAUSE BUTTONS IN SONG LIST */
+
+function updateSongButtons() {
+  document.querySelectorAll(".song").forEach((item, index) => {
+    const button = item.querySelector(".song-play");
+
+    if (index === currentIndex && !audio.paused) {
+      button.textContent = "⏸";
+    } else {
+      button.textContent = "▶";
+    }
+  });
 }
 
 
@@ -126,7 +143,9 @@ function showSongs() {
       <button class="song-play">▶</button>
     `;
 
-    item.addEventListener("click", () => {
+    /* CLICK ON SONG */
+
+    item.addEventListener("click", (event) => {
       loadSong(index);
       playSong();
     });
@@ -159,6 +178,8 @@ function loadSong(index) {
   document.querySelectorAll(".song").forEach((item, i) => {
     item.classList.toggle("active", i === currentIndex);
   });
+
+  updateSongButtons();
 }
 
 
@@ -172,6 +193,7 @@ function playSong() {
   audio.play()
     .then(() => {
       playPause.textContent = "⏸";
+      updateSongButtons();
     })
     .catch(error => {
       console.log("Song play nahi hua:", error);
@@ -185,6 +207,8 @@ function pauseSong() {
   audio.pause();
 
   playPause.textContent = "▶";
+
+  updateSongButtons();
 }
 
 
@@ -226,12 +250,13 @@ musicButton.addEventListener("click", () => {
   player.classList.toggle("open");
 });
 
+
 closePlayer.addEventListener("click", () => {
   player.classList.remove("open");
 });
 
 
-/* PLAY / PAUSE BUTTON */
+/* MAIN PLAY / PAUSE BUTTON */
 
 playPause.addEventListener("click", () => {
   if (!songs.length) return;
@@ -250,7 +275,7 @@ playPause.addEventListener("click", () => {
 });
 
 
-/* NEXT / PREVIOUS BUTTON */
+/* NEXT / PREVIOUS */
 
 next.addEventListener("click", nextSong);
 
@@ -288,10 +313,24 @@ progress.addEventListener("input", () => {
 });
 
 
-/* AUTO PLAY NEXT SONG */
+/* AUTO NEXT SONG */
 
 audio.addEventListener("ended", () => {
   nextSong();
+});
+
+
+/* KEEP BUTTONS SYNCED */
+
+audio.addEventListener("play", () => {
+  playPause.textContent = "⏸";
+  updateSongButtons();
+});
+
+
+audio.addEventListener("pause", () => {
+  playPause.textContent = "▶";
+  updateSongButtons();
 });
 
 
