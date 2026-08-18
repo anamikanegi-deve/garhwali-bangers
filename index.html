@@ -2,14 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Garhwali Bangers</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,74 +14,34 @@
   <main class="app">
 
     <header>
-
-      <p class="eyebrow">
-        🏔️ PAHADI VIBES
-      </p>
-
-      <h1>
-        Garhwali
-        <span>Bangers</span>
-      </h1>
-
-      <p class="sub">
-        Your Garhwali music corner
-      </p>
-
+      <p class="eyebrow">🏔️ PAHADI VIBES</p>
+      <h1>Garhwali <span>Bangers</span></h1>
+      <p class="sub">Your Garhwali music corner</p>
     </header>
 
-
-    <!-- NOW PLAYING -->
-
     <section class="hero">
-
       <div class="hero-art">
         🏔️
         <small>GARHWAL</small>
       </div>
 
       <div>
-
-        <h2 id="nowTitle">
-          Gajna
-        </h2>
-
-        <p id="nowArtist">
-          Garhwali Bangers
-        </p>
-
+        <p class="now-label">NOW PLAYING</p>
+        <h2 id="nowTitle">Select a song</h2>
+        <p id="nowArtist">Garhwali Bangers</p>
       </div>
-
     </section>
-
-
-    <!-- SONGS -->
 
     <section class="songs-section">
 
       <div class="section-title">
-
-        <h2>
-          🎵 Songs
-        </h2>
-
-        <span id="songCount">
-          0 songs
-        </span>
-
+        <h2>🎵 Songs</h2>
+        <span id="songCount">0 songs</span>
       </div>
 
+      <div id="songList" class="song-list"></div>
 
-      <div
-        id="songList"
-        class="song-list"
-      ></div>
-
-
-      <p
-        id="empty"
-        class="empty"
-      >
+      <p id="empty" class="empty">
         Songs will appear here.
       </p>
 
@@ -95,57 +49,28 @@
 
   </main>
 
+  <!-- Bottom Music Button -->
+  <button id="musicButton" class="music-button">
+    ♫
+  </button>
 
-  <!-- MUSIC BUTTON -->
-
-  <div class="music-wrapper">
-
-    <button
-      id="musicButton"
-      class="music-button"
-    >
-      ♫
-    </button>
-
-    <span class="music-label">
-      NOW PLAYING
-    </span>
-
-  </div>
-
-
-  <!-- MUSIC PLAYER -->
-
-  <div
-    id="player"
-    class="player"
-  >
+  <!-- Music Player -->
+  <div id="player" class="player">
 
     <div class="player-top">
 
       <div>
-
-        <p class="now-label">
-          PLAYING
-        </p>
-
-        <h3 id="playerTitle">
-          Gajna
-        </h3>
-
+        <p class="now-label">PLAYING</p>
+        <h3 id="playerTitle">Select a song</h3>
       </div>
 
-
-      <button
-        id="closePlayer"
-        class="close"
-      >
+      <button id="closePlayer" class="close">
         ×
       </button>
 
     </div>
 
-
+    <!-- Progress Bar -->
     <input
       id="progress"
       type="range"
@@ -154,30 +79,20 @@
       value="0"
     >
 
-
+    <!-- Song Time -->
     <div class="times">
-
-      <span id="currentTime">
-        0:00
-      </span>
-
-      <span id="duration">
-        0:00
-      </span>
-
+      <span id="currentTime">0:00</span>
+      <span id="duration">0:00</span>
     </div>
 
-
+    <!-- Player Controls -->
     <div class="controls">
 
       <button id="prev">
         ⏮
       </button>
 
-      <button
-        id="playPause"
-        class="main-control"
-      >
+      <button id="playPause" class="main-control">
         ▶
       </button>
 
@@ -188,7 +103,6 @@
     </div>
 
   </div>
-
 
   <audio id="audio"></audio>
 
