@@ -41,6 +41,40 @@ body {
   padding: 42px 0 150px;
 }
 
+/* ONLINE PEOPLE */
+
+.online-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 12px;
+
+  padding: 7px 13px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 30px;
+
+  background: rgba(10,10,10,0.45);
+  backdrop-filter: blur(10px);
+
+  color: #d7d7d7;
+  font-size: 12px;
+}
+
+.online-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #4ade80;
+
+  box-shadow: 0 0 10px #4ade80;
+}
+
+/* HEADER */
+
 .eyebrow {
   color: var(--accent);
   font-size: 12px;
@@ -63,6 +97,59 @@ h1 span {
   margin-top: 12px;
 }
 
+/* TOP RIGHT */
+
+.top-actions {
+  position: fixed;
+
+  top: 22px;
+  right: 25px;
+
+  display: flex;
+  gap: 10px;
+
+  z-index: 100;
+}
+
+.top-action {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 14px;
+
+  background: rgba(15,15,15,0.65);
+  backdrop-filter: blur(12px);
+
+  color: white;
+  font-size: 25px;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: 0.25s;
+}
+
+.top-action:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--accent);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.5);
+}
+
+.instagram-btn {
+  color: var(--accent);
+  font-size: 30px;
+}
+
+/* HERO */
+
 .hero {
   margin-top: 35px;
   padding: 24px;
@@ -72,6 +159,7 @@ h1 span {
   align-items: center;
 
   background: var(--glass);
+
   border: 1px solid rgba(255,255,255,0.12);
 
   border-radius: 24px;
@@ -80,6 +168,8 @@ h1 span {
 
   box-shadow: 0 20px 60px #0008;
 }
+
+/* PURANA HERO ICON */
 
 .hero-art {
   width: 110px;
@@ -106,22 +196,17 @@ h1 span {
   font-weight: bold;
 }
 
-.now-label {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--accent);
-  font-weight: bold;
-}
-
 .hero h2 {
   margin-top: 7px;
   font-size: 27px;
 }
 
-.hero p:last-child {
+.hero p {
   color: #aeb5b0;
   margin-top: 5px;
 }
+
+/* SONG SECTION */
 
 .songs-section {
   margin-top: 32px;
@@ -149,6 +234,8 @@ h1 span {
   gap: 10px;
 }
 
+/* SONG */
+
 .song {
   display: flex;
   align-items: center;
@@ -174,6 +261,32 @@ h1 span {
   border-color: #f2b84b66;
 }
 
+/* NEW IMAGE ONLY FOR SONG ICON */
+
+.song-cover {
+  width: 50px;
+  height: 50px;
+
+  min-width: 50px;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.song-cover img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* SONG INFO */
+
 .song-info {
   flex: 1;
   min-width: 0;
@@ -196,6 +309,8 @@ h1 span {
   margin-top: 3px;
 }
 
+/* SONG PLAY BUTTON */
+
 .song-play {
   width: 42px;
   height: 42px;
@@ -211,6 +326,13 @@ h1 span {
   cursor: pointer;
 }
 
+.song.active .song-play {
+  background: var(--accent);
+  color: #111;
+}
+
+/* EMPTY */
+
 .empty {
   color: #aeb5b0;
   text-align: center;
@@ -220,16 +342,26 @@ h1 span {
   line-height: 1.7;
 }
 
-.music-button {
+/* BOTTOM MUSIC BUTTON */
+
+.music-button-wrap {
   position: fixed;
 
   z-index: 20;
 
-  bottom: 25px;
+  bottom: 20px;
   left: 50%;
 
   transform: translateX(-50%);
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.music-button {
   width: 72px;
   height: 72px;
 
@@ -249,8 +381,19 @@ h1 span {
 }
 
 .music-button:hover {
-  transform: translateX(-50%) scale(1.06);
+  transform: scale(1.06);
 }
+
+.now-playing-text {
+  color: var(--accent);
+
+  font-size: 9px;
+  font-weight: bold;
+
+  letter-spacing: 1.5px;
+}
+
+/* PLAYER */
 
 .player {
   position: fixed;
@@ -299,6 +442,13 @@ h1 span {
 
 .player h3 {
   margin-top: 5px;
+}
+
+.now-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 .close {
@@ -375,22 +525,29 @@ input[type="range"] {
   font-size: 22px;
 }
 
-.volume-row {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-}
-
-.volume-row input {
-  margin: 0;
-}
+/* MOBILE */
 
 @media (max-width: 600px) {
 
   .app {
-    padding-top: 30px;
+    padding-top: 85px;
+  }
+
+  .top-actions {
+    top: 15px;
+    right: 15px;
+  }
+
+  .top-action {
+    width: 42px;
+    height: 42px;
+
+    font-size: 21px;
+  }
+
+  .online-status {
+    font-size: 10px;
+    padding: 6px 10px;
   }
 
   .hero {
@@ -407,9 +564,14 @@ input[type="range"] {
     font-size: 21px;
   }
 
+  .song-cover {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+  }
+
   .music-button {
     width: 64px;
     height: 64px;
-    bottom: 20px;
   }
 }
