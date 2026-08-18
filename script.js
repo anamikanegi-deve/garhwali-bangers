@@ -53,6 +53,69 @@ const songs = [
     title: "Ho be laliye",
     artist: "Garhwali Bangers",
     file: "songs/Ho Be Laliye Kullvi Traditional Song Kullvi Nati Folk Song  Himachal diaries Kritika Tanwar.mp3"
+  },
+
+  /* NEW SONGS */
+
+  {
+    title: "Nandre Tu",
+    artist: "Garhwali Bangers",
+    file: "songs/Nandre Tu  Rohit Chauhan Latest.mp3"
+  },
+  {
+    title: "Mund Ma Tupuli Saji",
+    artist: "Garhwali Bangers",
+    file: "songs/Mund Ma Tupuli Saji ge Latest Garhwali.mp3"
+  },
+  {
+    title: "Ab Laglu Mandaan",
+    artist: "Garhwali Bangers",
+    file: "songs/Ab Laglu Mandaan Ruhaan Bhardwaj.mp3"
+  },
+  {
+    title: "Mohana Teri Murali Baaji",
+    artist: "Garhwali Bangers",
+    file: "songs/Mohana Teri Murali Baaji [Full Song] Raju.mp3"
+  },
+  {
+    title: "Samloyna Rumaal",
+    artist: "Garhwali Bangers",
+    file: "songs/Samloyna Rumaal Rohit Chauhan Uttarakhand.mp3"
+  },
+  {
+    title: "Sachi Bonu Chho",
+    artist: "Garhwali Bangers",
+    file: "songs/SACHI BONU CHHO SAURAV MAITHANI.mp3"
+  },
+  {
+    title: "Syali Bol Bharuna",
+    artist: "Garhwali Bangers",
+    file: "songs/Syali Bol Bharuna Letest Garhwali Video.mp3"
+  },
+  {
+    title: "Bareilly Ko Jhumka",
+    artist: "Garhwali Bangers",
+    file: "songs/BAREILLY KO JHUMKA ROHIT CHAUHAN.mp3"
+  },
+  {
+    title: "LP Gadi",
+    artist: "Garhwali Bangers",
+    file: "songs/LP Gadi By Vicky Chauhan & Geeta Bhardwaj.mp3"
+  },
+  {
+    title: "Hey Kanchhi",
+    artist: "Garhwali Bangers",
+    file: "songs/Hey Kanchhi , by Anil Bisht.mp3"
+  },
+  {
+    title: "Chhakna Baand",
+    artist: "Garhwali Bangers",
+    file: "songs/Chhakna Baand [Full Song] Chhakna Baand.mp3"
+  },
+  {
+    title: "Gori Mukhadi Sazeli",
+    artist: "Garhwali Bangers",
+    file: "songs/Gori Mukhadi Sazeli.mp3"
   }
 ];
 
@@ -79,11 +142,8 @@ const playerTitle = document.getElementById("playerTitle");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
-
 let currentIndex = 0;
 
-
-/* TIME FORMAT */
 
 function formatTime(seconds) {
   if (!seconds || isNaN(seconds)) return "0:00";
@@ -94,23 +154,6 @@ function formatTime(seconds) {
   return `${minutes}:${secs.toString().padStart(2, "0")}`;
 }
 
-
-/* UPDATE PLAY / PAUSE BUTTONS IN SONG LIST */
-
-function updateSongButtons() {
-  document.querySelectorAll(".song").forEach((item, index) => {
-    const button = item.querySelector(".song-play");
-
-    if (index === currentIndex && !audio.paused) {
-      button.textContent = "⏸";
-    } else {
-      button.textContent = "▶";
-    }
-  });
-}
-
-
-/* SHOW SONGS */
 
 function showSongs() {
   songList.innerHTML = "";
@@ -143,9 +186,7 @@ function showSongs() {
       <button class="song-play">▶</button>
     `;
 
-    /* CLICK ON SONG */
-
-    item.addEventListener("click", (event) => {
+    item.addEventListener("click", () => {
       loadSong(index);
       playSong();
     });
@@ -155,8 +196,6 @@ function showSongs() {
 }
 
 
-/* LOAD SONG */
-
 function loadSong(index) {
   if (!songs.length) return;
 
@@ -165,7 +204,6 @@ function loadSong(index) {
   const song = songs[currentIndex];
 
   audio.src = song.file;
-  audio.load();
 
   nowTitle.textContent = song.title;
   nowArtist.textContent = song.artist;
@@ -177,42 +215,50 @@ function loadSong(index) {
 
   document.querySelectorAll(".song").forEach((item, i) => {
     item.classList.toggle("active", i === currentIndex);
-  });
 
-  updateSongButtons();
+    const button = item.querySelector(".song-play");
+
+    if (i === currentIndex && !audio.paused) {
+      button.textContent = "⏸";
+    } else {
+      button.textContent = "▶";
+    }
+  });
 }
 
 
-/* PLAY SONG */
+function updatePlayButtons() {
+  document.querySelectorAll(".song-play").forEach((button, index) => {
+    if (index === currentIndex && !audio.paused) {
+      button.textContent = "⏸";
+    } else {
+      button.textContent = "▶";
+    }
+  });
+}
+
 
 function playSong() {
   if (!songs.length) return;
 
   player.classList.add("open");
 
-  audio.play()
-    .then(() => {
-      playPause.textContent = "⏸";
-      updateSongButtons();
-    })
-    .catch(error => {
-      console.log("Song play nahi hua:", error);
-    });
+  audio.play();
+
+  playPause.textContent = "⏸";
+
+  updatePlayButtons();
 }
 
-
-/* PAUSE SONG */
 
 function pauseSong() {
   audio.pause();
 
   playPause.textContent = "▶";
 
-  updateSongButtons();
+  updatePlayButtons();
 }
 
-
-/* NEXT SONG */
 
 function nextSong() {
   if (!songs.length) return;
@@ -228,8 +274,6 @@ function nextSong() {
 }
 
 
-/* PREVIOUS SONG */
-
 function previousSong() {
   if (!songs.length) return;
 
@@ -244,8 +288,6 @@ function previousSong() {
 }
 
 
-/* OPEN / CLOSE PLAYER */
-
 musicButton.addEventListener("click", () => {
   player.classList.toggle("open");
 });
@@ -256,16 +298,8 @@ closePlayer.addEventListener("click", () => {
 });
 
 
-/* MAIN PLAY / PAUSE BUTTON */
-
 playPause.addEventListener("click", () => {
   if (!songs.length) return;
-
-  if (!audio.src) {
-    loadSong(currentIndex);
-    playSong();
-    return;
-  }
 
   if (audio.paused) {
     playSong();
@@ -275,14 +309,11 @@ playPause.addEventListener("click", () => {
 });
 
 
-/* NEXT / PREVIOUS */
-
 next.addEventListener("click", nextSong);
+
 
 prev.addEventListener("click", previousSong);
 
-
-/* SONG PROGRESS */
 
 audio.addEventListener("timeupdate", () => {
   if (!audio.duration) return;
@@ -295,15 +326,11 @@ audio.addEventListener("timeupdate", () => {
 });
 
 
-/* SONG DURATION */
-
 audio.addEventListener("loadedmetadata", () => {
   duration.textContent =
     formatTime(audio.duration);
 });
 
-
-/* CHANGE SONG POSITION */
 
 progress.addEventListener("input", () => {
   if (!audio.duration) return;
@@ -313,27 +340,22 @@ progress.addEventListener("input", () => {
 });
 
 
-/* AUTO NEXT SONG */
+audio.addEventListener("ended", nextSong);
 
-audio.addEventListener("ended", () => {
-  nextSong();
-});
-
-
-/* KEEP BUTTONS SYNCED */
 
 audio.addEventListener("play", () => {
   playPause.textContent = "⏸";
-  updateSongButtons();
+  updatePlayButtons();
 });
 
 
 audio.addEventListener("pause", () => {
   playPause.textContent = "▶";
-  updateSongButtons();
+  updatePlayButtons();
 });
 
 
-/* SHOW SONGS */
+audio.volume = 0.8;
+
 
 showSongs();
