@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Garhwali Bangers</title>
@@ -14,65 +14,89 @@
 
   <div class="overlay"></div>
 
+  <!-- TOP RIGHT BUTTONS -->
+  <div class="top-actions">
+
+    <a
+      href="https://www.instagram.com/vibee_coder?igsh=MWU3b2p5eXJ0N3U1dg=="
+      target="_blank"
+      class="top-action instagram-btn"
+      title="Instagram"
+    >
+      ◎
+    </a>
+
+    <button
+      id="fullscreenBtn"
+      class="top-action"
+      title="Full Screen"
+    >
+      ⛶
+    </button>
+
+  </div>
+
+
   <main class="app">
 
     <header>
+
+      <!-- PEOPLE ONLINE -->
+      <div class="online-status">
+        <span class="online-dot"></span>
+        <span id="onlineCount">233</span> people online
+      </div>
+
       <p class="eyebrow">🏔️ PAHADI VIBES</p>
 
-      <h1>
-        Garhwali <span>Bangers</span>
-      </h1>
+      <h1>Garhwali <span>Bangers</span></h1>
 
-      <p class="sub">
-        Your Garhwali music corner
-      </p>
+      <p class="sub">Your Garhwali music corner</p>
+
     </header>
 
 
-    <!-- CURRENT SONG SECTION -->
-
+    <!-- CURRENT SONG -->
     <section class="hero">
 
+      <!-- PURANA HERO ICON SAME -->
       <div class="hero-art">
         🏔️
         <small>GARHWAL</small>
       </div>
 
       <div>
-
-        <h2 id="nowTitle">
-          Select a song
-        </h2>
+        <h2 id="nowTitle">Loading...</h2>
 
         <p id="nowArtist">
           Garhwali Bangers
         </p>
-
       </div>
 
     </section>
 
 
-    <!-- SONG LIST -->
-
+    <!-- SONGS -->
     <section class="songs-section">
 
       <div class="section-title">
-
         <h2>🎵 Songs</h2>
 
         <span id="songCount">
           0 songs
         </span>
-
       </div>
 
+      <div
+        id="songList"
+        class="song-list"
+      ></div>
 
-      <div id="songList" class="song-list"></div>
-
-
-      <p id="empty" class="empty">
-        Songs will appear here.
+      <p
+        id="empty"
+        class="empty"
+      >
+        No songs found.
       </p>
 
     </section>
@@ -81,14 +105,16 @@
 
 
   <!-- BOTTOM MUSIC BUTTON -->
+  <div class="music-button-wrap">
 
-  <div class="music-control">
-
-    <button id="musicButton" class="music-button">
+    <button
+      id="musicButton"
+      class="music-button"
+    >
       ♫
     </button>
 
-    <span class="music-label">
+    <span class="now-playing-text">
       NOW PLAYING
     </span>
 
@@ -96,33 +122,34 @@
 
 
   <!-- MUSIC PLAYER -->
-
-  <div id="player" class="player">
+  <div
+    id="player"
+    class="player"
+  >
 
     <div class="player-top">
 
       <div>
-
         <p class="now-label">
           PLAYING
         </p>
 
         <h3 id="playerTitle">
-          Select a song
+          Loading...
         </h3>
-
       </div>
 
-
-      <button id="closePlayer" class="close">
+      <button
+        id="closePlayer"
+        class="close"
+      >
         ×
       </button>
 
     </div>
 
 
-    <!-- PROGRESS BAR -->
-
+    <!-- PROGRESS -->
     <input
       id="progress"
       type="range"
@@ -131,8 +158,6 @@
       value="0"
     >
 
-
-    <!-- SONG TIME -->
 
     <div class="times">
 
@@ -147,19 +172,19 @@
     </div>
 
 
-    <!-- PLAYER CONTROLS -->
-
+    <!-- CONTROLS -->
     <div class="controls">
 
       <button id="prev">
         ⏮
       </button>
 
-
-      <button id="playPause" class="main-control">
+      <button
+        id="playPause"
+        class="main-control"
+      >
         ▶
       </button>
-
 
       <button id="next">
         ⏭
@@ -170,15 +195,9 @@
   </div>
 
 
-  <!-- AUDIO -->
-
   <audio id="audio"></audio>
-
-
-  <!-- JAVASCRIPT -->
 
   <script src="script.js"></script>
 
 </body>
-
 </html>
