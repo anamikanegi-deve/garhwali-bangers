@@ -9,68 +9,48 @@ const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 
 const progress = document.getElementById("progress");
-
 const nowTitle = document.getElementById("nowTitle");
 const nowArtist = document.getElementById("nowArtist");
-
-const currentTime =
-  document.getElementById("currentTime");
-
-const duration =
-  document.getElementById("duration");
+const currentTime = document.getElementById("currentTime");
+const duration = document.getElementById("duration");
 
 let currentIndex = 0;
 
 
-/* TIME FORMAT */
-
 function formatTime(seconds) {
+  if (isNaN(seconds) || !seconds) return "0:00";
 
-  if (!seconds || isNaN(seconds)) {
-    return "0:00";
-  }
+  const min = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60);
 
-  const minutes =
-    Math.floor(seconds / 60);
-
-  const secs =
-    Math.floor(seconds % 60);
-
-  return `${minutes}:${secs
-    .toString()
-    .padStart(2, "0")}`;
+  return `${min}:${sec.toString().padStart(2, "0")}`;
 }
 
 
-/* LOAD SONG */
-
 function loadSong(index) {
-
-  if (!songs.length) return;
 
   currentIndex = index;
 
   const song = songs[currentIndex];
 
+  // Purana source hatao
+  audio.pause();
+  audio.removeAttribute("src");
+
+  // Exact filename use karo
   audio.src = song.file;
 
-  nowTitle.textContent =
-    song.title;
+  // Audio reload
+  audio.load();
 
-  nowArtist.textContent =
-    song.artist;
+  nowTitle.textContent = song.title;
+  nowArtist.textContent = song.artist;
 
   progress.value = 0;
-
-  currentTime.textContent =
-    "0:00";
-
-  duration.textContent =
-    "0:00";
+  currentTime.textContent = "0:00";
+  duration.textContent = "0:00";
 }
 
-
-/* PLAY */
 
 function playSong() {
 
@@ -80,35 +60,20 @@ function playSong() {
 
   audio.play()
     .then(() => {
-
-      playPause.textContent =
-        "⏸";
-
+      playPause.textContent = "⏸";
     })
     .catch((error) => {
-
-      console.log(
-        "Song play error:",
-        error
-      );
-
+      console.error("Audio error:", error);
+      alert("Song play nahi hua. Filename check karo: " + songs[currentIndex].file);
     });
-
 }
 
-
-/* PAUSE */
 
 function pauseSong() {
-
   audio.pause();
-
-  playPause.textContent =
-    "▶";
+  playPause.textContent = "▶";
 }
 
-
-/* NEXT SONG */
 
 function nextSong() {
 
@@ -119,184 +84,119 @@ function nextSong() {
   }
 
   loadSong(currentIndex);
-
   playSong();
 }
 
-
-/* PREVIOUS SONG */
 
 function previousSong() {
 
   currentIndex--;
 
   if (currentIndex < 0) {
-    currentIndex =
-      songs.length - 1;
+    currentIndex = songs.length - 1;
   }
 
   loadSong(currentIndex);
-
   playSong();
 }
 
 
-/* PLAY / PAUSE */
+playPause.addEventListener("click", () => {
 
-playPause.addEventListener(
-  "click",
-  () => {
-
-    if (audio.paused) {
-      playSong();
-    } else {
-      pauseSong();
-    }
-
+  if (audio.paused) {
+    playSong();
+  } else {
+    pauseSong();
   }
-);
+
+});
 
 
-/* NEXT */
+next.addEventListener("click", nextSong);
 
-next.addEventListener(
-  "click",
-  nextSong
-);
+prev.addEventListener("click", previousSong);
 
 
-/* PREVIOUS */
+/* 🎵 BUTTON - PLAYER SHOW/HIDE */
 
-prev.addEventListener(
-  "click",
-  previousSong
-);
+musicButton.addEventListener("click", () => {
+  player.classList.toggle("open");
+});
 
 
-/* SHOW / HIDE PLAYER */
+/* ⛶ FULLSCREEN */
 
-musicButton.addEventListener(
-  "click",
-  () => {
+fullscreenButton.addEventListener("click", () => {
 
-    player.classList.toggle(
-      "open"
-    );
-
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
   }
-);
+
+});
 
 
-/* PROGRESS */
+/* PROGRESS BAR */
 
-audio.addEventListener(
-  "timeupdate",
-  () => {
+audio.addEventListener("timeupdate", () => {
 
-    if (!audio.duration) return;
+  if (!audio.duration) return;
 
-    progress.value =
-      (audio.currentTime /
-        audio.duration) * 100;
+  progress.value =
+    (audio.currentTime / audio.duration) * 100;
 
-    currentTime.textContent =
-      formatTime(
-        audio.currentTime
-      );
+  currentTime.textContent =
+    formatTime(audio.currentTime);
 
-  }
-);
+});
 
 
-/* SONG DURATION */
+audio.addEventListener("loadedmetadata", () => {
 
-audio.addEventListener(
-  "loadedmetadata",
-  () => {
+  duration.textContent =
+    formatTime(audio.duration);
 
-    duration.textContent =
-      formatTime(
-        audio.duration
-      );
-
-  }
-);
+});
 
 
-/* SEEK SONG */
+progress.addEventListener("input", () => {
 
-progress.addEventListener(
-  "input",
-  () => {
+  if (!audio.duration) return;
 
-    if (!audio.duration) return;
+  audio.currentTime =
+    (progress.value / 100) * audio.duration;
 
-    audio.currentTime =
-      (progress.value / 100) *
-      audio.duration;
-
-  }
-);
+});
 
 
-/* AUTO NEXT */
-
-audio.addEventListener(
-  "ended",
-  nextSong
-);
+audio.addEventListener("ended", () => {
+  nextSong();
+});
 
 
-/* UPDATE PLAY BUTTON */
-
-audio.addEventListener(
-  "play",
-  () => {
-
-    playPause.textContent =
-      "⏸";
-
-  }
-);
+audio.addEventListener("play", () => {
+  playPause.textContent = "⏸";
+});
 
 
-audio.addEventListener(
-  "pause",
-  () => {
-
-    playPause.textContent =
-      "▶";
-
-  }
-);
+audio.addEventListener("pause", () => {
+  playPause.textContent = "▶";
+});
 
 
-/* FULLSCREEN */
+/* AGAR FILE LOAD NA HO */
 
-fullscreenButton.addEventListener(
-  "click",
-  () => {
+audio.addEventListener("error", () => {
 
-    if (!document.fullscreenElement) {
+  console.error(
+    "FILE NOT FOUND:",
+    songs[currentIndex].file
+  );
 
-      document.documentElement
-        .requestFullscreen()
-        .catch(err => {
-
-          console.log(err);
-
-        });
-
-    } else {
-
-      document.exitFullscreen();
-
-    }
-
-  }
-);
+});
 
 
-/* STARTING SONG */
+/* FIRST SONG LOAD */
 
 loadSong(0);
