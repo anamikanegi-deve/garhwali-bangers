@@ -45,11 +45,6 @@ const songs = [
     file: "songs/Chaita Ki Chaitwal  Audio चत क चतवल  Amit Sagar Gunjan Dangwal  गढवल आछर जगर.mp3"
   },
   {
-    title: "Aankhon ka baan",
-    artist: "Garhwali Bangers",
-    file: "songs/Aankhon Ka Baan  New Garhwali  Song 2025  Meena Rana & AnuragKant  #meghakhugshal.mp3"
-  },
-  {
     title: "Ho be laliye",
     artist: "Garhwali Bangers",
     file: "songs/Ho Be Laliye Kullvi Traditional Song Kullvi Nati Folk Song  Himachal diaries Kritika Tanwar.mp3"
@@ -108,6 +103,11 @@ const songs = [
     title: "Chhakna Baand",
     artist: "Garhwali Bangers",
     file: "songs/Chhakna Baand [Full Song] Chhakna Baand.mp3"
+  },
+  {
+    title: "Aankhon ka baan",
+    artist: "Garhwali Bangers",
+    file: "songs/Aankhon Ka Baan  New Garhwali  Song 2025  Meena Rana & AnuragKant  #meghakhugshal.mp3"
   },
   {
     title: "Gori Mukhadi Sazeli",
