@@ -105,11 +105,6 @@ const songs = [
     file: "songs/Chhakna Baand [Full Song] Chhakna Baand.mp3"
   },
   {
-    title: "Aankhon ka baan",
-    artist: "Garhwali Bangers",
-    file: "songs/Aankhon Ka Baan  New Garhwali  Song 2025  Meena Rana & AnuragKant  #meghakhugshal.mp3"
-  },
-  {
     title: "Gori Mukhadi Sazeli",
     artist: "Garhwali Bangers",
     file: "songs/Gori Mukhadi Sazeli.mp3"
