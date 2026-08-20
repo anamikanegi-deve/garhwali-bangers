@@ -9,7 +9,7 @@ const songs = [
     title: "Gajna",
     artist: "Garhwali Bangers",
     file: "songs/Gajna(गजन)  New latest Gadwali Song 2026  Pritam Bhartwan.mp3",
-    start: 0
+    start: 7
   },
   {
     title: "Challpatti",
@@ -27,13 +27,13 @@ const songs = [
     title: "Jiya kori kori khandu",
     artist: "Garhwali Bangers",
     file: "songs/Jiya Kori Kori Khando  New  Garhwali Song 2025  Kishan Mahipal  Tanu Rawat  Anoop Parmar.mp3",
-    start: 0
+    start: 5
   },
   {
     title: "Gulabi sharara",
     artist: "Garhwali Bangers",
     file: "songs/Gulabi Sharara  l  गलब शरर  Inder Arya Rakesh Joshi Neeru Bora Latest Uttarakhandi song.mp3",
-    start: 0
+    start: 7
   },
   {
     title: "Roop ku Mantar",
@@ -45,13 +45,13 @@ const songs = [
     title: "Aachri",
     artist: "Garhwali Bangers",
     file: "songs/Achhri New Garhwali Song 2025  Darshan Farswan  LB Shivam Bhatt.mp3",
-    start: 0
+    start: 4
   },
   {
     title: "Chaita ki chatwali",
     artist: "Garhwali Bangers",
     file: "songs/Chaita Ki Chaitwal  Audio चत क चतवल  Amit Sagar Gunjan Dangwal  गढवल आछर जगर.mp3",
-    start: 0
+    start: 4
   },
   {
     title: "Ho be laliye",
@@ -63,19 +63,19 @@ const songs = [
     title: "Nandre Tu",
     artist: "Garhwali Bangers",
     file: "songs/Nandre Tu  ननदर त  Rohit Chauhan  Latest Uttarakhandi Song.mp3",
-    start: 0
+    start: 3
   },
   {
     title: "Mund Ma Tupuli Saji",
     artist: "Garhwali Bangers",
     file: "songs/Mund Ma Tupuli Saji ge Latest Garhwali DJ Song 2020  Devesh Rawat  Mars Series II Team M J.mp3",
-    start: 0
+    start: 10
   },
   {
     title: "Ab Laglu Mandaan",
     artist: "Garhwali Bangers",
     file: "songs/Ab Laglu Mandaan  Ruhaan Bhardwaj  X KARISHMA SHAH X Official Song  youth festival 2020.mp3",
-    start: 0
+    start: 4
   },
   {
     title: "Mohana Teri Murali Baaji",
@@ -93,25 +93,25 @@ const songs = [
     title: "Sachi Bonu Chho",
     artist: "Garhwali Bangers",
     file: "songs/SACHI BONU CHHO  SAURAV MAITHANI  SANJU SILODI & RUCHI RAWAT  HIMALAYAN PULSE.mp3",
-    start: 0
+    start: 4
   },
   {
     title: "Syali Bol Bharuna",
     artist: "Garhwali Bangers",
     file: "songs/Syali Bol Bharuna  Letest Garhwali Video Song 2020  GeetaRam Kanswal  Ruchi  Naresh Bailwal.mp3",
-    start: 0
+    start: 4
   },
   {
     title: "Bareilly Ko Jhumka",
     artist: "Garhwali Bangers",
     file: "songs/BAREILLY KO JHUMKA  ROHIT CHAUHAN  UTTARAKHANDI SONG  OFFICIAL VIDEO.mp3",
-    start: 0
+    start: 7
   },
   {
     title: "LP Gadi",
     artist: "Garhwali Bangers",
     file: "songs/LP Gadi By Vicky Chauhan & Geeta Bhardwaj ft Neeraj Dabral & Shubhangi  Latest Himachali Video 2022.mp3",
-    start: 0
+    start: 10
   },
   {
     title: "Hey Kanchhi",
