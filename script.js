@@ -2,112 +2,134 @@ const songs = [
   {
     title: "Chall meri saruli kimasaadi haat ma",
     artist: "Garhwali Bangers",
-    file: "songs/Chal meri saruli kimsadihat ma full new jagar Panwada song new  gadwali song Pritam Bhartwan.mp3"
+    file: "songs/Chal meri saruli kimsadihat ma full new jagar Panwada song new  gadwali song Pritam Bhartwan.mp3",
+    start: 0
   },
   {
     title: "Gajna",
     artist: "Garhwali Bangers",
-    file: "songs/Gajna(गजन)  New latest Gadwali Song 2026  Pritam Bhartwan.mp3"
+    file: "songs/Gajna(गजन)  New latest Gadwali Song 2026  Pritam Bhartwan.mp3",
+    start: 0
   },
   {
     title: "Challpatti",
     artist: "Garhwali Bangers",
-    file: "songs/Challpatti  Latest Garhwali Song 2020  Diwan Singh Panwar  Meena Rana  Shivay Music.mp3"
+    file: "songs/Challpatti  Latest Garhwali Song 2020  Diwan Singh Panwar  Meena Rana  Shivay Music.mp3",
+    start: 0
   },
   {
     title: "Ramdai ka hotel",
     artist: "Garhwali Bangers",
-    file: "songs/RAMDAI KA HOTEL II CHANDANI ENTERPRISES II KUMAONI SONG II SATENDRA GANGOLA II LALIT GITYAR.mp3"
+    file: "songs/RAMDAI KA HOTEL II CHANDANI ENTERPRISES II KUMAONI SONG II SATENDRA GANGOLA II LALIT GITYAR.mp3",
+    start: 0
   },
   {
     title: "Jiya kori kori khandu",
     artist: "Garhwali Bangers",
-    file: "songs/Jiya Kori Kori Khando  New  Garhwali Song 2025  Kishan Mahipal  Tanu Rawat  Anoop Parmar.mp3"
+    file: "songs/Jiya Kori Kori Khando  New  Garhwali Song 2025  Kishan Mahipal  Tanu Rawat  Anoop Parmar.mp3",
+    start: 0
   },
   {
     title: "Gulabi sharara",
     artist: "Garhwali Bangers",
-    file: "songs/Gulabi Sharara  l  गलब शरर  Inder Arya Rakesh Joshi Neeru Bora Latest Uttarakhandi song.mp3"
+    file: "songs/Gulabi Sharara  l  गलब शरर  Inder Arya Rakesh Joshi Neeru Bora Latest Uttarakhandi song.mp3",
+    start: 0
   },
   {
     title: "Roop ku Mantar",
     artist: "Garhwali Bangers",
-    file: "songs/Roop Ku Mantar  Official Visualizer  Priyanka Meher  Vivek Nautiyal.mp3"
+    file: "songs/Roop Ku Mantar  Official Visualizer  Priyanka Meher  Vivek Nautiyal.mp3",
+    start: 0
   },
   {
     title: "Aachri",
     artist: "Garhwali Bangers",
-    file: "songs/Achhri New Garhwali Song 2025  Darshan Farswan  LB Shivam Bhatt.mp3"
+    file: "songs/Achhri New Garhwali Song 2025  Darshan Farswan  LB Shivam Bhatt.mp3",
+    start: 0
   },
   {
     title: "Chaita ki chatwali",
     artist: "Garhwali Bangers",
-    file: "songs/Chaita Ki Chaitwal  Audio चत क चतवल  Amit Sagar Gunjan Dangwal  गढवल आछर जगर.mp3"
+    file: "songs/Chaita Ki Chaitwal  Audio चत क चतवल  Amit Sagar Gunjan Dangwal  गढवल आछर जगर.mp3",
+    start: 0
   },
   {
     title: "Ho be laliye",
     artist: "Garhwali Bangers",
-    file: "songs/Ho Be Laliye Kullvi Traditional Song Kullvi Nati Folk Song  Himachal diaries Kritika Tanwar.mp3"
+    file: "songs/Ho Be Laliye Kullvi Traditional Song Kullvi Nati Folk Song  Himachal diaries Kritika Tanwar.mp3",
+    start: 0
   },
   {
     title: "Nandre Tu",
     artist: "Garhwali Bangers",
-    file: "songs/Nandre Tu  ननदर त  Rohit Chauhan  Latest Uttarakhandi Song.mp3"
+    file: "songs/Nandre Tu  ननदर त  Rohit Chauhan  Latest Uttarakhandi Song.mp3",
+    start: 0
   },
   {
     title: "Mund Ma Tupuli Saji",
     artist: "Garhwali Bangers",
-    file: "songs/Mund Ma Tupuli Saji ge Latest Garhwali DJ Song 2020  Devesh Rawat  Mars Series II Team M J.mp3"
+    file: "songs/Mund Ma Tupuli Saji ge Latest Garhwali DJ Song 2020  Devesh Rawat  Mars Series II Team M J.mp3",
+    start: 0
   },
   {
     title: "Ab Laglu Mandaan",
     artist: "Garhwali Bangers",
-    file: "songs/Ab Laglu Mandaan  Ruhaan Bhardwaj  X KARISHMA SHAH X Official Song  youth festival 2020.mp3"
+    file: "songs/Ab Laglu Mandaan  Ruhaan Bhardwaj  X KARISHMA SHAH X Official Song  youth festival 2020.mp3",
+    start: 0
   },
   {
     title: "Mohana Teri Murali Baaji",
     artist: "Garhwali Bangers",
-    file: "songs/Mohana Teri Murali Baaji [Full Song] Rajuli.mp3"
+    file: "songs/Mohana Teri Murali Baaji [Full Song] Rajuli.mp3",
+    start: 0
   },
   {
     title: "Samloyna Rumaal",
     artist: "Garhwali Bangers",
-    file: "songs/Samlonya Rumaal  Rohit Chauhan  Uttarakhandi Song.mp3"
+    file: "songs/Samlonya Rumaal  Rohit Chauhan  Uttarakhandi Song.mp3",
+    start: 0
   },
   {
     title: "Sachi Bonu Chho",
     artist: "Garhwali Bangers",
-    file: "songs/SACHI BONU CHHO  SAURAV MAITHANI  SANJU SILODI & RUCHI RAWAT  HIMALAYAN PULSE.mp3"
+    file: "songs/SACHI BONU CHHO  SAURAV MAITHANI  SANJU SILODI & RUCHI RAWAT  HIMALAYAN PULSE.mp3",
+    start: 0
   },
   {
     title: "Syali Bol Bharuna",
     artist: "Garhwali Bangers",
-    file: "songs/Syali Bol Bharuna  Letest Garhwali Video Song 2020  GeetaRam Kanswal  Ruchi  Naresh Bailwal.mp3"
+    file: "songs/Syali Bol Bharuna  Letest Garhwali Video Song 2020  GeetaRam Kanswal  Ruchi  Naresh Bailwal.mp3",
+    start: 0
   },
   {
     title: "Bareilly Ko Jhumka",
     artist: "Garhwali Bangers",
-    file: "songs/BAREILLY KO JHUMKA  ROHIT CHAUHAN  UTTARAKHANDI SONG  OFFICIAL VIDEO.mp3"
+    file: "songs/BAREILLY KO JHUMKA  ROHIT CHAUHAN  UTTARAKHANDI SONG  OFFICIAL VIDEO.mp3",
+    start: 0
   },
   {
     title: "LP Gadi",
     artist: "Garhwali Bangers",
-    file: "songs/LP Gadi By Vicky Chauhan & Geeta Bhardwaj ft Neeraj Dabral & Shubhangi  Latest Himachali Video 2022.mp3"
+    file: "songs/LP Gadi By Vicky Chauhan & Geeta Bhardwaj ft Neeraj Dabral & Shubhangi  Latest Himachali Video 2022.mp3",
+    start: 0
   },
   {
     title: "Hey Kanchhi",
     artist: "Garhwali Bangers",
-    file: "songs/Hey Kanchhi  , by Anil Bisht.mp3"
+    file: "songs/Hey Kanchhi  , by Anil Bisht.mp3",
+    start: 0
   },
   {
     title: "Chhakna Baand",
     artist: "Garhwali Bangers",
-    file: "songs/Chhakna Baand [Full Song] Chhakna Baand.mp3"
+    file: "songs/Chhakna Baand [Full Song] Chhakna Baand.mp3",
+    start: 0
   },
   {
     title: "Gori Mukhadi Sazeli",
     artist: "Garhwali Bangers",
-    file: "songs/Gori Mukhadi Sazeli.mp3"
+    file: "songs/Gori Mukhadi Sazeli.mp3",
+    start: 0
   }
 ];
 
@@ -129,6 +151,7 @@ const nowArtist = document.getElementById("nowArtist");
 
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
+
 
 let currentIndex = 0;
 
@@ -172,6 +195,8 @@ function loadSong(index) {
 
   const song = songs[currentIndex];
 
+  audio.pause();
+
   audio.src = song.file;
 
   audio.load();
@@ -181,10 +206,12 @@ function loadSong(index) {
 
   progress.value = 0;
 
-  currentTime.textContent = "0:00";
+  currentTime.textContent = formatTime(song.start);
   duration.textContent = "0:00";
 
+
   /* PRELOAD NEXT SONG */
+
   let nextIndex = currentIndex + 1;
 
   if (nextIndex >= songs.length) {
@@ -195,9 +222,23 @@ function loadSong(index) {
 }
 
 
-/* PLAY */
+/* PLAY SONG */
 
 function playSong() {
+
+  const song = songs[currentIndex];
+
+  /*
+    Starting silence skip.
+    Song ke object me start value seconds me hai.
+  */
+
+  if (
+    audio.currentTime < song.start &&
+    audio.readyState >= 2
+  ) {
+    audio.currentTime = song.start;
+  }
 
   audio.play()
     .then(function () {
@@ -210,18 +251,16 @@ function playSong() {
       console.log("Cannot play:", error);
 
     });
-
 }
 
 
-/* PAUSE */
+/* PAUSE SONG */
 
 function pauseSong() {
 
   audio.pause();
 
   playPause.textContent = "▶";
-
 }
 
 
@@ -254,7 +293,19 @@ next.addEventListener("click", function () {
 
   loadSong(currentIndex);
 
-  playSong();
+  /*
+    Metadata/load hone ke baad play.
+  */
+
+  const startPlaying = function () {
+
+    audio.removeEventListener("canplay", startPlaying);
+
+    playSong();
+
+  };
+
+  audio.addEventListener("canplay", startPlaying);
 
 });
 
@@ -271,7 +322,15 @@ prev.addEventListener("click", function () {
 
   loadSong(currentIndex);
 
-  playSong();
+  const startPlaying = function () {
+
+    audio.removeEventListener("canplay", startPlaying);
+
+    playSong();
+
+  };
+
+  audio.addEventListener("canplay", startPlaying);
 
 });
 
@@ -302,12 +361,30 @@ fullscreenButton.addEventListener("click", function () {
 });
 
 
-/* LOADED */
+/* LOADED METADATA */
 
 audio.addEventListener("loadedmetadata", function () {
 
+  const song = songs[currentIndex];
+
   duration.textContent =
     formatTime(audio.duration);
+
+  /*
+    Progress bar ko starting point se begin karna
+  */
+
+  if (song.start > 0) {
+
+    audio.currentTime = song.start;
+
+    progress.value =
+      (song.start / audio.duration) * 100;
+
+    currentTime.textContent =
+      formatTime(song.start);
+
+  }
 
 });
 
@@ -316,7 +393,19 @@ audio.addEventListener("loadedmetadata", function () {
 
 audio.addEventListener("timeupdate", function () {
 
-  if (!audio.duration) return;
+  if (!audio.duration) {
+    return;
+  }
+
+  const song = songs[currentIndex];
+
+  /*
+    Starting silence ke pehle progress ko show nahi karna
+  */
+
+  if (audio.currentTime < song.start) {
+    return;
+  }
 
   progress.value =
     (audio.currentTime / audio.duration) * 100;
@@ -327,11 +416,13 @@ audio.addEventListener("timeupdate", function () {
 });
 
 
-/* PROGRESS */
+/* PROGRESS BAR */
 
 progress.addEventListener("input", function () {
 
-  if (!audio.duration) return;
+  if (!audio.duration) {
+    return;
+  }
 
   audio.currentTime =
     (progress.value / 100) * audio.duration;
@@ -351,7 +442,15 @@ audio.addEventListener("ended", function () {
 
   loadSong(currentIndex);
 
-  playSong();
+  const startPlaying = function () {
+
+    audio.removeEventListener("canplay", startPlaying);
+
+    playSong();
+
+  };
+
+  audio.addEventListener("canplay", startPlaying);
 
 });
 
