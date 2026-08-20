@@ -133,6 +133,8 @@ const duration = document.getElementById("duration");
 let currentIndex = 0;
 
 
+/* FORMAT TIME */
+
 function formatTime(seconds) {
 
   if (isNaN(seconds) || !isFinite(seconds)) {
@@ -142,10 +144,27 @@ function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
 
-  return minutes + ":" +
-    secs.toString().padStart(2, "0");
+  return minutes + ":" + secs.toString().padStart(2, "0");
 }
 
+
+/* PRELOAD NEXT SONG */
+
+function preloadSong(index) {
+
+  if (index < 0 || index >= songs.length) {
+    return;
+  }
+
+  const preloadAudio = new Audio();
+
+  preloadAudio.preload = "auto";
+
+  preloadAudio.src = songs[index].file;
+}
+
+
+/* LOAD SONG */
 
 function loadSong(index) {
 
@@ -155,29 +174,47 @@ function loadSong(index) {
 
   audio.src = song.file;
 
+  audio.load();
+
   nowTitle.textContent = song.title;
   nowArtist.textContent = song.artist;
 
   progress.value = 0;
+
   currentTime.textContent = "0:00";
   duration.textContent = "0:00";
 
-  audio.load();
+  /* PRELOAD NEXT SONG */
+  let nextIndex = currentIndex + 1;
+
+  if (nextIndex >= songs.length) {
+    nextIndex = 0;
+  }
+
+  preloadSong(nextIndex);
 }
 
+
+/* PLAY */
 
 function playSong() {
 
   audio.play()
     .then(function () {
+
       playPause.textContent = "⏸";
+
     })
     .catch(function (error) {
+
       console.log("Cannot play:", error);
+
     });
 
 }
 
+
+/* PAUSE */
 
 function pauseSong() {
 
@@ -188,16 +225,24 @@ function pauseSong() {
 }
 
 
+/* PLAY / PAUSE */
+
 playPause.addEventListener("click", function () {
 
   if (audio.paused) {
+
     playSong();
+
   } else {
+
     pauseSong();
+
   }
 
 });
 
+
+/* NEXT */
 
 next.addEventListener("click", function () {
 
@@ -208,10 +253,13 @@ next.addEventListener("click", function () {
   }
 
   loadSong(currentIndex);
+
   playSong();
 
 });
 
+
+/* PREVIOUS */
 
 prev.addEventListener("click", function () {
 
@@ -222,10 +270,13 @@ prev.addEventListener("click", function () {
   }
 
   loadSong(currentIndex);
+
   playSong();
 
 });
 
+
+/* MUSIC BUTTON */
 
 musicButton.addEventListener("click", function () {
 
@@ -233,6 +284,8 @@ musicButton.addEventListener("click", function () {
 
 });
 
+
+/* FULLSCREEN */
 
 fullscreenButton.addEventListener("click", function () {
 
@@ -249,6 +302,8 @@ fullscreenButton.addEventListener("click", function () {
 });
 
 
+/* LOADED */
+
 audio.addEventListener("loadedmetadata", function () {
 
   duration.textContent =
@@ -256,6 +311,8 @@ audio.addEventListener("loadedmetadata", function () {
 
 });
 
+
+/* TIME UPDATE */
 
 audio.addEventListener("timeupdate", function () {
 
@@ -270,6 +327,8 @@ audio.addEventListener("timeupdate", function () {
 });
 
 
+/* PROGRESS */
+
 progress.addEventListener("input", function () {
 
   if (!audio.duration) return;
@@ -280,6 +339,8 @@ progress.addEventListener("input", function () {
 });
 
 
+/* AUTO NEXT */
+
 audio.addEventListener("ended", function () {
 
   currentIndex++;
@@ -289,10 +350,13 @@ audio.addEventListener("ended", function () {
   }
 
   loadSong(currentIndex);
+
   playSong();
 
 });
 
+
+/* PLAY EVENT */
 
 audio.addEventListener("play", function () {
 
@@ -301,12 +365,16 @@ audio.addEventListener("play", function () {
 });
 
 
+/* PAUSE EVENT */
+
 audio.addEventListener("pause", function () {
 
   playPause.textContent = "▶";
 
 });
 
+
+/* ERROR */
 
 audio.addEventListener("error", function () {
 
@@ -317,5 +385,7 @@ audio.addEventListener("error", function () {
 
 });
 
+
+/* FIRST SONG */
 
 loadSong(0);
