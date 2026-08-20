@@ -9,7 +9,7 @@ const songs = [
     title: "Gajna",
     artist: "Garhwali Bangers",
     file: "songs/Gajna(गजन)  New latest Gadwali Song 2026  Pritam Bhartwan.mp3",
-    start: 7
+    start: 10
   },
   {
     title: "Challpatti",
@@ -99,7 +99,7 @@ const songs = [
     title: "Syali Bol Bharuna",
     artist: "Garhwali Bangers",
     file: "songs/Syali Bol Bharuna  Letest Garhwali Video Song 2020  GeetaRam Kanswal  Ruchi  Naresh Bailwal.mp3",
-    start: 4
+    start: 8
   },
   {
     title: "Bareilly Ko Jhumka",
