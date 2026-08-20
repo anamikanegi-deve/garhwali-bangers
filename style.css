@@ -43,6 +43,63 @@ body {
   z-index: -1;
 }
 
+/* FLOATING PARTICLES */
+
+.particles {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.45) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.3) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.25) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    180px 180px,
+    250px 250px,
+    320px 320px;
+
+  background-position:
+    20px 30px,
+    100px 150px,
+    200px 80px;
+
+  animation: particlesFloat 18s ease-in-out infinite;
+
+  opacity: 0.45;
+}
+
+@keyframes particlesFloat {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* TITLE */
 
 .hero {
@@ -56,12 +113,17 @@ body {
   width: 100%;
 
   text-align: center;
+
   padding: 20px;
+
+  z-index: 2;
 }
 
 .hero h1 {
   font-size: clamp(50px, 9vw, 130px);
+
   font-family: Georgia, serif;
+
   font-weight: normal;
 
   text-shadow:
@@ -74,8 +136,11 @@ body {
 
 .hero p {
   margin-top: 15px;
+
   font-size: 13px;
+
   letter-spacing: 3px;
+
   opacity: 0.8;
 }
 
@@ -83,10 +148,12 @@ body {
 
 .side-buttons {
   position: fixed;
+
   top: 25px;
   right: 25px;
 
   display: flex;
+
   gap: 12px;
 
   z-index: 100;
@@ -105,6 +172,7 @@ body {
   backdrop-filter: blur(10px);
 
   color: white;
+
   font-size: 22px;
 
   cursor: pointer;
@@ -116,6 +184,7 @@ body {
   position: fixed;
 
   left: 50%;
+
   bottom: 25px;
 
   transform: translateX(-50%);
@@ -159,11 +228,13 @@ body {
 
 .player-left {
   display: flex;
+
   align-items: center;
 
   gap: 18px;
 
   flex: 1;
+
   min-width: 0;
 }
 
@@ -197,6 +268,7 @@ body {
 
 .player-info {
   flex: 1;
+
   min-width: 0;
 }
 
@@ -216,6 +288,7 @@ body {
   opacity: 0.7;
 
   margin-top: 5px;
+
   margin-bottom: 12px;
 }
 
@@ -289,22 +362,34 @@ body {
 
   .hero p {
     font-size: 9px;
+
     letter-spacing: 2px;
   }
 
   .side-buttons {
     top: 15px;
+
     right: 15px;
   }
 
   .side-btn {
     width: 45px;
+
     height: 45px;
   }
 
   .player {
     padding: 14px;
+
     bottom: 15px;
+
+    width: calc(100% - 20px);
+
+    gap: 8px;
+  }
+
+  .player-left {
+    gap: 10px;
   }
 
   .cover {
@@ -320,17 +405,40 @@ body {
 
   .player-info p {
     font-size: 11px;
+
+    margin-bottom: 8px;
   }
 
+  /* NEXT / PREVIOUS BUTTONS */
+
   .control-btn {
-  width: 38px;
-  height: 38px;
-  font-size: 18px;
-}
+    display: block;
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 18px;
+  }
+
+  .controls {
+    gap: 3px;
+  }
 
   .play-btn {
     width: 52px;
     height: 52px;
+
+    font-size: 20px;
   }
 
+  /* SMALLER PARTICLES ON MOBILE */
+
+  .particles {
+    opacity: 0.35;
+
+    background-size:
+      140px 140px,
+      200px 200px,
+      270px 270px;
+  }
 }
