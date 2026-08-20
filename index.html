@@ -11,37 +11,92 @@
 
 <body>
 
+  <!-- BACKGROUND -->
   <div class="background"></div>
+
+  <!-- DARK OVERLAY -->
   <div class="overlay"></div>
 
+  <!-- FLOATING PARTICLES -->
+  <div class="particles"></div>
+
+
+  <!-- MAIN TITLE -->
   <main class="hero">
-    <h1>गढ़वाली <span>BANGERS</span></h1>
-    <p>GARHWALI MUSIC • UTTARAKHAND</p>
+
+    <h1>
+      गढ़वाली <span>BANGERS</span>
+    </h1>
+
+    <p>
+      GARHWALI MUSIC • UTTARAKHAND
+    </p>
+
   </main>
 
+
+  <!-- TOP BUTTONS -->
   <div class="side-buttons">
-    <button id="musicButton" class="side-btn" type="button">🎵</button>
-    <button id="fullscreenButton" class="side-btn" type="button">⛶</button>
+
+    <button
+      id="musicButton"
+      class="side-btn"
+      type="button"
+      aria-label="Music"
+    >
+      🎵
+    </button>
+
+    <button
+      id="fullscreenButton"
+      class="side-btn"
+      type="button"
+      aria-label="Fullscreen"
+    >
+      ⛶
+    </button>
+
   </div>
 
-  <section id="player" class="player open">
 
+  <!-- MUSIC PLAYER -->
+  <section
+    id="player"
+    class="player open"
+  >
+
+    <!-- LEFT SIDE -->
     <div class="player-left">
 
       <!-- SONG COVER -->
       <div class="cover">
-        <img src="covers/cover.jpg" alt="Garhwali Bangers Cover">
+
+        <img
+          src="covers/cover.jpg"
+          alt="Garhwali Bangers Cover"
+        >
+
       </div>
 
+
+      <!-- SONG INFORMATION -->
       <div class="player-info">
 
-        <h2 id="nowTitle">Loading...</h2>
+        <h2 id="nowTitle">
+          Loading...
+        </h2>
 
-        <p id="nowArtist">Garhwali Bangers</p>
+        <p id="nowArtist">
+          Garhwali Bangers
+        </p>
 
+
+        <!-- PROGRESS -->
         <div class="progress-row">
 
-          <span id="currentTime">0:00</span>
+          <span id="currentTime">
+            0:00
+          </span>
 
           <input
             type="range"
@@ -51,7 +106,9 @@
             value="0"
           >
 
-          <span id="duration">0:00</span>
+          <span id="duration">
+            0:00
+          </span>
 
         </div>
 
@@ -59,17 +116,39 @@
 
     </div>
 
+
+    <!-- MUSIC CONTROLS -->
     <div class="controls">
 
-      <button id="prev" class="control-btn" type="button">
+      <!-- PREVIOUS -->
+      <button
+        id="prev"
+        class="control-btn"
+        type="button"
+        aria-label="Previous song"
+      >
         ⏮
       </button>
 
-      <button id="playPause" class="play-btn" type="button">
+
+      <!-- PLAY / PAUSE -->
+      <button
+        id="playPause"
+        class="play-btn"
+        type="button"
+        aria-label="Play or pause"
+      >
         ▶
       </button>
 
-      <button id="next" class="control-btn" type="button">
+
+      <!-- NEXT -->
+      <button
+        id="next"
+        class="control-btn"
+        type="button"
+        aria-label="Next song"
+      >
         ⏭
       </button>
 
@@ -77,8 +156,15 @@
 
   </section>
 
-  <audio id="audio" preload="metadata"></audio>
 
+  <!-- AUDIO -->
+  <audio
+    id="audio"
+    preload="metadata"
+  ></audio>
+
+
+  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
 
 </body>
